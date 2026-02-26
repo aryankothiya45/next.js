@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f1f5f9; /* soft modern background */
+  --foreground: #0f172a;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020617;
+    --foreground: #e2e8f0;
+    --card-bg: #0f172a;
+    --border-color: #1e293b;
   }
 }
 
+/* Base body styling (global UI improvement) */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Smooth transitions globally */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Make images look better everywhere */
+img {
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+/* Improve all div cards automatically (without editing components) */
+div.border {
+  background: var(--card-bg);
+  border-color: var(--border-color) !important;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+}
+
+/* Hover effect for product cards */
+div.border:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve buttons globally */
+button {
+  border-radius: 0.6rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Better link styling (View Product links) */
+a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Improve headings globally */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Better spacing for main content automatically */
+main {
+  padding: 1.5rem;
 }
