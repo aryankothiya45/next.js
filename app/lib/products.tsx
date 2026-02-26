@@ -1,0 +1,31 @@
+export type Product={
+    id : string;
+    image : string;
+    name : string;
+    price : number;
+    description : string;
+}
+
+export const products : Product[] = [
+    {
+        id : "1",
+        image : "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80",
+        name : "Laptop",
+        price : 50000,
+        description : "Best for gamers and developers",
+    },
+    {
+        id : "2",
+        image : "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+        name : "SmartPhone",
+        price : 20000,
+        description : "Modern phone with enhanced camera quality",
+    },
+    {
+        id : "3",
+        image : "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&q=80",
+        name : "SmartWatch",
+        price : 9000,
+        description : "Digital watch that connects with mobile",
+    },
+];
