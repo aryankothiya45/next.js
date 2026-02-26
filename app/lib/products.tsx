@@ -4,6 +4,8 @@ export type Product={
     name : string;
     price : number;
     description : string;
+    category: "laptop" | "smartphone" | "smartwatch";
+
 }
 
 export const products : Product[] = [
@@ -13,6 +15,7 @@ export const products : Product[] = [
         name : "Laptop",
         price : 575,
         description : "Best for gamers and developers",
+        category : "laptop"
     },
     {
         id : "2",
@@ -20,6 +23,7 @@ export const products : Product[] = [
         name : "SmartPhone",
         price : 220,
         description : "Modern phone with enhanced camera quality",
+        category : "smartphone"
     },
     {
         id : "3",
@@ -27,5 +31,6 @@ export const products : Product[] = [
         name : "SmartWatch",
         price : 99,
         description : "Digital watch that connects with mobile",
+        category : "smartwatch"
     },
 ];
