@@ -5,6 +5,12 @@ export function middleware(request: NextRequest) {
     const authCookie = request.cookies.get("auth")?.value;
     const {pathname} = request.nextUrl;
 
+    if(pathname === "/login" && authCookie === "true" ){
+        const homeURL = new URL("/", request.url);
+        homeURL.searchParams.set("alreadyLoggedIn", "true");
+        return NextResponse.redirect(homeURL);
+    }
+
     if(pathname === "/login" ){
         return NextResponse.next();
     }
@@ -14,6 +20,8 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(loginURL);
     }
     return NextResponse.next();
+
+
 }
 
 export const config = {

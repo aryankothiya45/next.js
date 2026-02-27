@@ -10,13 +10,17 @@ const Navbar =() => {
 
     useEffect(() => {
         const checkAuth =() => {
-            const auth:string|null = localStorage.getItem("isLoggedIn");
-            setIsLoggedIn(auth === "true");
+            const hasAuthCookie = document.cookie
+            .split(";")
+            .find((row) => row.trim().startsWith("auth="));
+
+            setIsLoggedIn(hasAuthCookie?.split("=")[1] === "true");
         };
+
         checkAuth();
-        window.addEventListener("authChange",checkAuth);
+        window.addEventListener("focus",checkAuth);
         return () => {
-            window.removeEventListener("authChange",checkAuth);
+            window.removeEventListener("focus",checkAuth);
         }; 
     }, []);
 

@@ -2,9 +2,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import type { ReactNode } from "react";
-import Navbar from "./components/Navbar"
-import Sidebar from "./components/Sidebar"
-import AuthSessionCleaner from "./components/AuthSessionCleaner";
+import AppShell from "./components/AppShell"
+// import AuthSessionCleaner from "./components/AuthSessionCleaner";
 
 
 export const metadata: Metadata = {
@@ -21,13 +20,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body className="flex min-h-screen">
-        <AuthSessionCleaner />
-          <Sidebar />
-          <div className = "flex-1 flex flex-col">
-            <Navbar />
-            <main className="p-6"> {children}</main>
-          </div>
-        
+        {/* <AuthSessionCleaner /> */}
+        <AppShell>
+          {children}
+        </AppShell>
       </body>
     </html>
   );

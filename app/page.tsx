@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { products, type Product } from "./lib/products";
+import LoginPopup from "./components/LoginPopup";
 
-type HomepageProps = {
+type HomepageProps = {        
   searchParams: Promise<{
     category?: string;
   }>;
@@ -22,7 +24,9 @@ const HomePage = async ({
 
   return (
     <>
-
+      <Suspense fallback={null}>
+        <LoginPopup />
+      </Suspense>
       <h2 className="mb-6 text-2xl font-bold">{category} Products</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {filteredProducts.map((product : Product) => (
