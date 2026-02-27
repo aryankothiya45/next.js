@@ -1,38 +1,84 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const Navbar =() => {
-    return(
-        <header className="border-b p-4 flex items-center gap-6">
-            <h1 className="text-xl font-bold">
-                E-commerce
-            </h1>
+    const router = useRouter();
+    const [isLoggedIn,setIsLoggedIn] = useState<boolean>(false);
 
-            <nav className="flex gap-4">
-                <Link
-                    href = "/"
-                    className="px-3 py-1 rounded bg-blue-400 capitalize"
-                >
-                    all
-                </Link>
-                <Link
-                    href = "/?category=laptop"
-                    className="px-3 py-1 rounded bg-blue-400 capitalize"
-                >
-                    laptop
-                </Link>
-                <Link
-                    href = "/?category=smartphone"
-                    className="px-3 py-1 rounded bg-blue-400 capitalize"
-                >
-                    smartphone
-                </Link>
-                <Link
-                    href = "/?category=smartwatch"
-                    className="px-3 py-1 rounded bg-blue-400 capitalize"
-                >
-                    smartwatch
-                </Link>
-            </nav>
+    useEffect(() => {
+        const checkAuth =() => {
+            const auth:string|null = localStorage.getItem("isLoggedIn");
+            setIsLoggedIn(auth === "true");
+        };
+        checkAuth();
+        window.addEventListener("authChange",checkAuth);
+        return () => {
+            window.removeEventListener("authChange",checkAuth);
+        }; 
+    }, []);
+
+    const handleLogout = () : void => {
+        sessionStorage.removeItem("isLoggedIn");
+        window.dispatchEvent(new Event("authChange"));
+        router.replace("/login");
+    }
+
+    return(
+        <header className="border-b p-4 flex items-center justify-between">
+
+            <div className="flex items-center gap-6">
+                <h1 className="text-xl font-bold">
+                    E-commerce
+                </h1>
+
+                <nav className="flex gap-4">
+                    <Link
+                        href = "/"
+                        className="px-3 py-1 rounded bg-blue-400 capitalize"
+                    >
+                        all
+                    </Link>
+                    <Link
+                        href = "/?category=laptop"
+                        className="px-3 py-1 rounded bg-blue-400 capitalize"
+                    >
+                        laptop
+                    </Link>
+                    <Link
+                        href = "/?category=smartphone"
+                        className="px-3 py-1 rounded bg-blue-400 capitalize"
+                    >
+                        smartphone
+                    </Link>
+                    <Link
+                        href = "/?category=smartwatch"
+                        className="px-3 py-1 rounded bg-blue-400 capitalize"
+                    >
+                        smartwatch
+                    </Link>
+                </nav>
+            </div>
+
+            <div>
+                {!isLoggedIn ? (
+                    <Link
+                        href = "/login"
+                        className="px-4 py-1 rounded bg-blue-500 text-white hover:bg-blue-600"
+                    >
+                        Login
+                    </Link>
+                ) : (
+                    <button
+                        onClick={handleLogout}
+                        className="px-4 py-1 rounded bg-red-500 text-white hover:bg-red-600"
+                    >
+                        Logout
+                    </button>
+                )}
+            </div>
         </header>
     );
 };
