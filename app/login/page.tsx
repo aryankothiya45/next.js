@@ -14,8 +14,7 @@ const Login = () =>{
         e.preventDefault();
 
         if(email==="admin@gmail.com" && password==="abcd1234@"){
-            sessionStorage.setItem("isLoggedIn" ,"true");
-            window.dispatchEvent(new Event("authChange"));
+            document.cookie = "auth=true; path=/; SameSite=Lax";
             router.push("/");
         }else{
             setError("invalid credentials");

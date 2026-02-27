@@ -21,8 +21,7 @@ const Navbar =() => {
     }, []);
 
     const handleLogout = () : void => {
-        sessionStorage.removeItem("isLoggedIn");
-        window.dispatchEvent(new Event("authChange"));
+        document.cookie = "auth=; path=/; max-age=0;  expires=Thu, 01 Jan 1970 00:00:00 UTC; ";
         router.replace("/login");
     }
 
