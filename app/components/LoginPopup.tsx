@@ -9,8 +9,6 @@ const LoginPopup = () => {
 
     useEffect(() => {
         if (searchParams.get("alreadyLoggedIn") === "true") {
-            alert("You are already logged in!");
-            // Clean up the URL by replacing the current entry without the query param
             router.replace("/");
         }
     }, [searchParams, router]);
