@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { products, type Product } from "./lib/products";
 import LoginPopup from "./components/LoginPopup";
+import AddToCart from "./components/AddToCart";
 
 type HomepageProps = {        
   searchParams: Promise<{
@@ -49,6 +50,7 @@ const HomePage = async ({
               Price: ${product.price}
             </p>
 
+            <AddToCart productId={product.id} productName={product.name} productPrice={product.price} productImage={product.image} />
             <Link href={`/product/${product.id}`} className="mt-2 inline-block text-blue-600 hover:underline">
               View Product
             </Link>

@@ -43,7 +43,12 @@ const ProductPage =  async({ params, }: ProductPageProps) => {
                 {product.description}
             </p>
 
-            <AddToCart productName={product.name} />
+            <AddToCart 
+                productId={product.id} 
+                productName={product.name} 
+                productPrice={product.price} 
+                productImage={product.image} 
+            />
         </section>
     );
 }

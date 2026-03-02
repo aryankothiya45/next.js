@@ -197,15 +197,19 @@ button.bg-red-500:hover {
 button.bg-blue-600 {
   background: var(--accent) !important;
   color: #fff !important;
-  padding: 0.55rem 1.4rem;
-  font-size: 0.9rem;
-  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.25);
+  margin: .75rem 1rem 0rem 1rem;
+  /* Match the margin of the View Product link */
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.15);
 }
 
 button.bg-blue-600:hover {
   background: var(--accent-hover) !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
 }
 
 /* Login submit button */
@@ -276,7 +280,7 @@ div.border a.text-blue-600 {
   padding: 0.35rem 0.85rem;
   background: var(--accent-light);
   color: var(--accent);
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.82rem;
   font-weight: 600;
 }
@@ -463,4 +467,58 @@ h2.mb-6 {
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border);
+}
+
+/* ── Footer ───────────────────────────────────── */
+.footer-container {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.footer-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+}
+
+footer nav .sidebar-link {
+  font-size: 0.8rem;
+  padding-bottom: 1px;
+}
+
+/* ── Quantity Controls ────────────────────────── */
+.quantity-controls {
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.quantity-controls:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.qty-btn {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.qty-value {
+  color: var(--text-primary);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.text-accent {
+  color: var(--accent) !important;
 }

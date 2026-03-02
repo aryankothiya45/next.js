@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import type { ReactNode } from "react";
 import AppShell from "./components/AppShell"
+import { CartProvider } from "./context/CartContext";
 // import AuthSessionCleaner from "./components/AuthSessionCleaner";
 
 
@@ -21,9 +22,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <html lang="en">
       <body className="flex min-h-screen">
         {/* <AuthSessionCleaner /> */}
-        <AppShell>
-          {children}
-        </AppShell>
+        <CartProvider>
+          <AppShell>
+            {children}
+          </AppShell>
+        </CartProvider>
       </body>
     </html>
   );

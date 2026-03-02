@@ -20,7 +20,7 @@ export const products : Product[] = [
     {
         id : "2",
         image : "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
-        name : "samasung dalaxy s25 ultra",
+        name : "samsung galaxy s25 ultra",
         price : 220,
         description : "Modern phone with enhanced camera quality",
         category : "smartphone"
